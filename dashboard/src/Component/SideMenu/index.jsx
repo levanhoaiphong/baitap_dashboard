@@ -10,7 +10,7 @@ function SideMenu() {
       <Typography style={{ padding: "20px 30px", color: "#A9A9A9" }} variant="h5">
         Dashboard
       </Typography>
-        {/* <NavLink component={Button} >User Management</NavLink> */}
+        <NavLink to="/user" component={Button} >User</NavLink>
         <NavLink component={Button} style={{borderRadius:15}} to="/signin">Signin</NavLink>
         <NavLink component={Button} to="/signup">Signup</NavLink>
     </div>

@@ -1,21 +1,28 @@
 import { Button, Container, TextField, Typography } from "@material-ui/core";
 import { useFormik } from "formik";
 import React, { Fragment } from "react";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { signIn } from "../../redux/Action/userSignin";
 import useStyle from "./style";
 
 export default function Signin() {
   const classes = useStyle();
+  const dispatch = useDispatch();
+  const history = useHistory()
 
   const formik = useFormik({
 	  initialValues:{
 		  taiKhoan:"",
 		  matKhau:"",
-		  maNguoiDung:"",
 	  }
   })
   const handleSubmit =(e)=>{
 	  e.preventDefault()
-	  console.log(formik.values)
+    dispatch(signIn(formik.values,goToDashboard))
+  }
+  const goToDashboard =()=>{
+    history.push("/")
   }
   return (
     <Fragment>
